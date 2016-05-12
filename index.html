@@ -1,0 +1,136 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Body Caculator</title>
+  <link rel="stylesheet" type="text/css" href="app.css">
+
+</head>
+<body>
+  <div class="menu-bar">
+    <button class="tab" id="bmi_caculator">BMI Caculator</button>
+    <button class="tab" id="show" onclick="bmi_caculator()">BMI Caculator</button>
+    <button class="tab" onclick="bmi_caculator()">BMI Caculator</button>
+  </div>
+  <div id="caculator" style="display:none;">
+    <div>
+      <label>BMI Caculator</label>
+    </div>
+    <div>
+      <div class="name">
+        Height: 
+      </div>
+      <div class="box">
+        <input id="height" type="text" style="width:40px;" /> cm <br>  
+      </div>
+      <div class="name">
+        Weight: 
+      </div>
+      <div class="box">
+        <input id="weight" type="text" style="width:40px;" /> kg <br>  
+      </div>
+    </div>
+    <button class="button_c" id="bmi_button">Submit</button>
+    <div>
+      <div style="display:inline-block;width:400px;">
+        <table>
+          <tr>
+              Chuẩn của Tổ chức Y tế thế giới (WHO):
+          </tr>
+          <tr>
+            <td>
+              BMI < 18,5
+            </td>
+            <td>
+              người gầy
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BMI = 18,5 – 24,9
+            </td>
+            <td>
+              bình thường
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BMI = 25
+            </td>
+            <td>
+              thừa cân
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BMI = 25 – 29.9
+            </td>
+            <td>
+              tiền béo phì
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              BMI = 30 – 34,9
+            </td>
+            <td>
+              người béo phì độ I
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BMI = 35 – 39.9
+            </td>
+            <td>
+              người béo phì độ II
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BMI = 40
+            </td>
+            <td>
+              người béo phì độ III
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="display:inline-block;width:300px;">
+        <table style="border:solid 1px;">
+          <tr>
+            Người châu Á ( IDI&WPRO):
+          </tr>
+          <tr><td>BMI < 18,5</td><td>người gầy</td></tr>
+          <tr><td>BMI = 18,5 – 22,9</td><td>bình thường</td></tr>
+          <tr><td>BMI = 23</td><td>thừa cân</td></tr>
+          <tr><td>BMI = 23 – 24.9</td><td>tiền béo phì</td></tr>
+          <tr><td>BMI = 25 – 29,9</td><td>người béo phì độ I</td></tr>
+          <tr><td>BMI = 30</td><td>người béo phì độ II</td></tr>
+          <tr><td>BMI = 40</td><td>người béo phì độ III</td></tr>
+        </table>
+      </div>
+    </div>
+    chênh lệch BMI của nữ và nam chênh lệch khoảng 2 đơn vị
+  </div>
+  <script type="text/javascript">
+
+    require('./app.js')
+  </script>
+  <script>
+    const remote = require('electron').remote;
+    const Menu = remote.Menu;
+    const MenuItem = remote.MenuItem;
+
+    var menu = new Menu();
+    menu.append(new MenuItem({ label: 'MenuItem1', click: function() { console.log('item 1 clicked'); } }));
+    menu.append(new MenuItem({ type: 'separator' }));
+    menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }));
+
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      menu.popup(remote.getCurrentWindow());
+    }, false);
+</script>
+<script src="bmi_caculator.js"></script>
+</body>
+</html>
